@@ -28,11 +28,3 @@ def tokenize(lines):
 
 
 tokenize("Hej,jag heter Anton!")
-
-
-"""
-.lower()
-.isalpha():
-.isdigit():
-.isspace()
-"""

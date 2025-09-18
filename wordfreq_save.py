@@ -5,9 +5,9 @@ def tokenize(lines):
                 while start < len(line):
                         while line[start].isspace() == True:
                                 start = start + 1
-                        if line[start]
-                        print(line[start])
-                        start = start + 1
+                        if line[start]:
+                                print(line[start])
+                                start = start + 1
         return words
 
 tokenize(['apple','pi  e'])
