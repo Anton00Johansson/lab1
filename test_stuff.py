@@ -1,3 +1,10 @@
+text = "Hej, programmering är kuuuuu!"
+
+for n in text:
+    print(text[n])
+
+
+
 """
 .lower()
 .isalpha():
