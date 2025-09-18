@@ -1,9 +1,32 @@
 text = "Hej, jag heter Anton!"
-text_ny = text.lower()
-text_ny = text_ny.split()
 
-print(text_ny)
+"""
+.lower()
+.isalpha():
+.isdigit():
+"""
 
-for i in text_ny:
-        if i[-1].isalpha() is False:
-                print(f'({i[-1]} {i[-2]}')
+def split(text):
+        result = []
+        word = ""
+        for char in text:
+              if char == " " and if word:
+                      result.append(word)
+                      word = " "
+
+
+def my_split(s):
+    result = []
+    current = ""
+
+    for char in s:  # gå igenom tecken för tecken
+        if char == " ":  # hittat ett mellanslag → börja ett nytt ord
+            if current:            # spara bara om vi har byggt ett ord
+                result.append(current)
+                current = ""
+        else:
+            current += char        # bygg på ordet
+    if current:                    # sista ordet (om något finns kvar)
+        result.append(current)
+
+    return result
