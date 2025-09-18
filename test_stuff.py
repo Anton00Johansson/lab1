@@ -1,19 +1,8 @@
-text = "Hej, jag heter Anton!"
-
 """
 .lower()
 .isalpha():
 .isdigit():
-"""
-
-def split(text):
-        result = []
-        word = ""
-        for char in text:
-              if char == " " and if word:
-                      result.append(word)
-                      word = " "
-
+.isspace()
 
 def my_split(s):
     result = []
@@ -30,3 +19,5 @@ def my_split(s):
         result.append(current)
 
     return result
+
+    """
