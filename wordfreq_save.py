@@ -13,7 +13,6 @@ def tokenize(lines):
                         if start < len(line) and line[start].isspace():
                                 while start < len(line) and line[start].isspace():
                                         start += 1
-                                words.append(line[word_start:start])
                         
                         elif start < len(line) and line[start].isalpha():
                                 word_start = start
