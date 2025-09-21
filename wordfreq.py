@@ -1,6 +1,9 @@
 def tokenize(lines):
         if isinstance(lines, str):
                 lines = lines.lower().split()
+        else:
+                lines = " ".join(lines)
+                lines = lines.lower().split()
         
         words = []
         for line in lines:
@@ -29,5 +32,7 @@ def tokenize(lines):
                                 start += 1    
         return words
 
-
-print(tokenize("Hej,jag heter Anton!"))
+text = ['Apple','Pie']
+text2 = '10  sweet  apple  tarts.'
+print(tokenize(text))
+print(tokenize(text2))
