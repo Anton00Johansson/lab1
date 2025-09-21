@@ -1,9 +1,11 @@
 def tokenize(lines):
         if isinstance(lines, str):
                 lines = lines.lower().split()
-        else:
+        elif isinstance(lines, list):
                 lines = " ".join(lines)
                 lines = lines.lower().split()
+        else:
+                print(f'Fel format på input.')
         
         words = []
         for line in lines:
@@ -31,7 +33,9 @@ def tokenize(lines):
                                 start += 1    
         return words
 
+
 text = ['Apple','Pie']
 text2 = '10  sweet  apple  tarts.'
+
 print(tokenize(text))
 print(tokenize(text2))
