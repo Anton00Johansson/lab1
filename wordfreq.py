@@ -1,4 +1,17 @@
 def tokenize(lines):
+        """
+        Splits input text into a list of tokens (words, numbers, and symbols).
+
+        Args:
+                lines (str or list): Input text, either as a single string or a list of strings.
+
+        Returns:
+                list: A list of tokens (strings), where words, digits, and symbols are separated.
+
+        Raises:
+                TypeError: If input is not a string or a list of strings.
+        """
+            
         if isinstance(lines, str):
                 lines = lines.lower().split()
         elif isinstance(lines, list):
@@ -35,6 +48,17 @@ def tokenize(lines):
 
 
 def countWords(words, stopWords):
+        """
+        Counts how many times each word occurs, ignoring stop words.
+
+        Args:
+                words (list): A list of words (tokens) to count.
+                stopWords (list): A list of words to exclude from counting.
+
+        Returns:
+                dict: A dictionary where keys are words and values are their frequencies.
+        """
+
         frequencies = {}
         for word in words:
                 if word in stopWords:
@@ -48,8 +72,19 @@ def countWords(words, stopWords):
 
 
 def printTopMost(frequencies,n):
+        """
+        Prints the n most frequent words and their counts.
+
+        Args:
+                frequencies (dict): A dictionary with words as keys and their frequencies as values.
+                n (int): The number of top frequent words to display.
+
+        Returns:
+                None
+        """
+
         sort = sorted(frequencies.items(), key = lambda x:-x[1])
         for word, freq in sort[:n]:
                 print(f'{word.ljust(20)}{str(freq).rjust(5)}')
 
-
+                
