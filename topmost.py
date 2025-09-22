@@ -1,5 +1,5 @@
 import sys
-import wordfreq
+import wordfreq as w
 from pathlib import Path
 
 
@@ -36,12 +36,12 @@ def main():
         text = "It is a good book. Good for reading."
         n = 2
 
-    tokens = wordfreq.tokenize(text)
-    frequencies = wordfreq.countWords(tokens, stop_words)
+    tokens = w.tokenize(text)
+    frequencies = w.countWords(tokens, stop_words)
 
     print(tokens)
     print(frequencies)
-    wordfreq.printTopMost(frequencies, n)
+    w.printTopMost(frequencies, n)
 
 
 if __name__ == "__main__":
