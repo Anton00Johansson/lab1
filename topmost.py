@@ -2,34 +2,31 @@ import wordfreq
 import sys
 
 def main():
-        text = ['It','is','a','book']
-        stopWords = ['a','is','it']
-        n = int(10)
-        
-        text = wordfreq.tokenize(text)
-        frequencies = wordfreq.countWords(wordfreq.tokenize(text), stopWords)
+        if len(sys.argv) >= 4:
+                stopWords = sys.argv[1]
+                inp_file = sys.argv[2]
+                n = int(sys.argv[3])
+                a = True
+        else:
+                stopWords = ['a','is','it', '.']
+                inp_file = ['It','is','a', 'good','book', '.', 'Good', 'for', 'reading', '.']
+                n = 2
+                a = False
 
-        print(f'{text}')
+        inp_file = wordfreq.tokenize(inp_file)
+        frequencies = wordfreq.countWords(inp_file, stopWords)
+
+        print(f'{inp_file}')
         print(f'{frequencies}')
         wordfreq.printTopMost(frequencies,n)
 
+        if a == True:
+        # Closing files
+                inp_file.close()
+                stopWords.close()
 
 
 if __name__ == "__main__":
         main()
 
-
-"""
-        stopWords = open(sys.argv[1], encoding="utf-8")
-        inp_file = open(sys.argv[2], encoding="utf-8")
-        n = int(sys.argv[3])
-
-        text = wordfreq.tokenize(inp_file)
-        frequencies = wordfreq.countWords(wordfreq.tokenize(text), stopWords)
-
-        wordfreq.printTopMost(frequencies,n)
-
-        # Closing files
-        inp_file.close()
-        stopWords.close()
-"""        
+# python3 topmost.py eng_stopwords.txt examples/article1.txt 20

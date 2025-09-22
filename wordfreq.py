@@ -53,14 +53,3 @@ def printTopMost(frequencies,n):
                 print(f'{word.ljust(20)}{str(freq).rjust(5)}')
 
 
-if __name__ == "__main__":
-        text = ['It','is','a','book']
-        stopWords = ['a','is','it']
-        n = int(10)
-        
-        text = tokenize(text)
-        frequencies = countWords(tokenize(text), stopWords)
-
-        print(f'{text}')
-        print(f'{frequencies}')
-        printTopMost(frequencies,n)
