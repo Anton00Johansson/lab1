@@ -1,32 +1,51 @@
-import wordfreq
 import sys
+import wordfreq
+from pathlib import Path
+
+
+def load_stopwords(path: Path):
+    # Läser ord separerade av whitespace (rad/blanktecken) och trimmar
+    with path.open(encoding="utf-8") as f:
+        return [w.strip() for w in f.read().split() if w.strip()]
+
+
+def load_text(path: Path) -> str:
+    with path.open(encoding="utf-8") as f:
+        return f.read()
+
 
 def main():
-        if len(sys.argv) >= 4:
-                stopWords = sys.argv[1]
-                inp_file = sys.argv[2]
-                n = int(sys.argv[3])
-                a = True
-        else:
-                stopWords = ['a','is','it', '.']
-                inp_file = ['It','is','a', 'good','book', '.', 'Good', 'for', 'reading', '.']
-                n = 2
-                a = False
+    if len(sys.argv) >= 4:
+        stopwords_path = Path(sys.argv[1])
+        text_path = Path(sys.argv[2])
+        n = int(sys.argv[3])
 
-        inp_file = wordfreq.tokenize(inp_file)
-        frequencies = wordfreq.countWords(inp_file, stopWords)
+        # Grundläggande felkoll
+        if not stopwords_path.exists():
+            print(f"Fel: stopwords-fil finns inte: {stopwords_path}")
+            return
+        if not text_path.exists():
+            print(f"Fel: textfil finns inte: {text_path}")
+            return
 
-        print(f'{inp_file}')
-        print(f'{frequencies}')
-        wordfreq.printTopMost(frequencies,n)
+        stop_words = load_stopwords(stopwords_path)
+        text = load_text(text_path)
+    else:
+        # Fallback-exempel för att kunna köra direkt i VS Code
+        stop_words = ["a", "is", "it", "."]
+        text = "It is a good book. Good for reading."
+        n = 2
 
-        if a == True:
-        # Closing files
-                inp_file.close()
-                stopWords.close()
+    tokens = wordfreq.tokenize(text)
+    frequencies = wordfreq.countWords(tokens, stop_words)
+
+    print(tokens)
+    print(frequencies)
+    wordfreq.printTopMost(frequencies, n)
 
 
 if __name__ == "__main__":
-        main()
+    main()
 
-# python3 topmost.py eng_stopwords.txt examples/article1.txt 20
+
+# python3 topmost.py eng_stopwords.txt examples/article1.txt 3
