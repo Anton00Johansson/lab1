@@ -39,3 +39,12 @@ text2 = '10  sweet  apple  tarts.'
 
 print(tokenize(text))
 print(tokenize(text2))
+
+
+"""
+def countWords():
+        pass
+
+def printTopMost():
+        pass
+"""
