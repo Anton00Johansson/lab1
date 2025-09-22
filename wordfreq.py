@@ -34,17 +34,33 @@ def tokenize(lines):
         return words
 
 
-text = ['Apple','Pie']
-text2 = '10  sweet  apple  tarts.'
+def countWords(words, stopWords):
+        frequencies = {}
+        for word in words:
+                if word in stopWords:
+                        continue
+                elif word in frequencies:
+                        frequencies[word] += 1
+                else:
+                        frequencies[word] = 1
+        
+        return frequencies
 
-print(tokenize(text))
-print(tokenize(text2))
+
+def printTopMost(frequencies,n):
+        sort = sorted(frequencies.items(), key = lambda x:-x[1])
+        for word, freq in sort[:n]:
+                print(f'{word.ljust(20)}{str(freq).rjust(5)}')
 
 
-"""
-def countWords():
-        pass
+if __name__ == "__main__":
+        text = ['It','is','a','book']
+        stopWords = ['a','is','it']
+        n = int(10)
+        
+        text = tokenize(text)
+        frequencies = countWords(tokenize(text), stopWords)
 
-def printTopMost():
-        pass
-"""
+        print(f'{text}')
+        print(f'{frequencies}')
+        printTopMost(frequencies,n)
