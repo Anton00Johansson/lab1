@@ -82,4 +82,3 @@ def printTopMost(frequencies,n):
         sort = sorted(frequencies.items(), key = lambda x:-x[1])
         for word, freq in sort[:n]:
                 print(f'{word.ljust(20)}{str(freq).rjust(5)}')
-

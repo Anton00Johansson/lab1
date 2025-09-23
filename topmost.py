@@ -22,4 +22,4 @@ if __name__ == "__main__":
     main()
 
 
-# Kör koden med: python3 topmost.py eng_stopwords.txt examples/article1.txt 3
+# Kör koden med: python3 topmost.py eng_stopwords.txt examples/article1.txt 10
