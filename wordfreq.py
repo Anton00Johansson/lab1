@@ -7,9 +7,6 @@ def tokenize(lines):
 
         Returns:
                 list: A list of tokens (strings), where words, digits, and symbols are separated.
-
-        Raises:
-                TypeError: If input is not a string or a list of strings.
         """
         
         if isinstance(lines, str):
