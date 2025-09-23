@@ -11,15 +11,14 @@ def tokenize(lines):
         Raises:
                 TypeError: If input is not a string or a list of strings.
         """
-            
+        
         if isinstance(lines, str):
                 lines = lines.lower().split()
-        elif isinstance(lines, list):
+        else:
                 lines = " ".join(lines)
                 lines = lines.lower().split()
-        else:
-                print(f'Fel format på input.')
-        
+
+
         words = []
         for line in lines:
 
@@ -87,4 +86,3 @@ def printTopMost(frequencies,n):
         for word, freq in sort[:n]:
                 print(f'{word.ljust(20)}{str(freq).rjust(5)}')
 
-                
